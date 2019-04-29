@@ -9,6 +9,13 @@
   </head>
   <body>
     <script type="text/javascript">
+      SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.onresult = (event) => {
+        alert(event.results[0][0].transcript);
+      }
+      recognition.start();
+
       const rightWebmo = new Webmo.ws("webmo.local");
       rightWebmo.onopen = function(){
 
