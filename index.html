@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>平成ちゃん(仮)</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <script src="http://webmo.local/javascripts/webmo.js"></script>
     <script src="./scripts/webmo.js"></script>
     <script src="./scripts/speechAPI.js"></script>
   </head>
   <body>
-    <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-    <video src="./movies/test.mp4" autoplay loop preload="auto"></video>
-    <input type="button" class="startbutton" value="平成ちゃんと遊ぶ！">
+    <div class="screen">
+      <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+      <video class="movie" src="./movies/test.mp4" autoplay loop preload="auto"></video>
+      <input type="button" id="startbutton" value="平成ちゃんと遊ぶ！">
+    </div>
     <script type="text/javascript">
       motor.onopen = function(){
         speak.start();
