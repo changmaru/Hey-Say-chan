@@ -3,16 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>平成ちゃん(仮)</title>
-    <script type="thttps://cdn.rawgit.com/cidreixd/webmo-library-javascript/master/dist/webmo.min.js">
-
-    </script>
+    <script type="thttps://cdn.rawgit.com/cidreixd/webmo-library-javascript/master/dist/webmo.min.js"></script>
   </head>
   <body>
+    <h1 id="test">hoge</h1>
     <script type="text/javascript">
-      const rightWebmo = new Webmo.ws("webmo.local");
-      rightWebmo.onopen = function(){
-
+      let speech = "";
+      SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.onresult = (event) => {
+        speech = event.results[0][0].transcript;
+        console.log(speech);
       }
+      recognition.start();
+
+      // const rightWebmo = new Webmo.ws("webmo.local");
+      // rightWebmo.onopen = function(){
+      //
+      // }
 
     </script>>
   </body>
