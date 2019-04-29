@@ -13,17 +13,46 @@
     <script type="text/javascript">
 
       let speech = "";
+      let video = document.getElementById('seikai-stay');
+      window.onload() {
       speak.start();
+        $('#seikai').hide();
+        $('#dareda').hide();
+        $('#dareda-stay').hide();
+      }
 
       function start(){
         $('#startbutton').hide();
         //closeEyes();
-        speech = "";
+        video.pause();
+        video = document.getElementById('dareda');
+        $('#dareda').show();
+        $('#seikai-stay').hide();
+        video.play();
+        video.pause();
+        video.currentTime = 0;
+
+        video.addEventListener('ended', function() {
+          video = document.getElementById('dareda-stay');
+          video.play();
+        });
       }
 
       function end() {
         $('#startbutton').show();
         //openEyes();
+        video.pause();
+        video = document.getElementById('seikai');
+        $('#seikai').show();
+        $('#dareda-stay').hide();
+        video.play();
+        video.pause();
+        video.currentTime = 0;
+
+        video.addEventListener('ended', function() {
+          video = document.getElementById('seikai-stay');
+          video.play();
+        });
       }
 
     </script>
@@ -31,7 +60,10 @@
   <body>
     <div class="screen">
       <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-      <video class="movie" src="./movies/test.MOV" autoplay loop preload="auto"></video>
+      <video id="seikai" src="./movies/seikai.mp4" preload="auto"></video>
+      <video id="seikai-stay" src="./movies/seikai-stay.mp4" autoplay loop></video>
+      <video id="dareda" src="./movies/dareda.mp4" preload="auto"></video>
+      <video id="dareda-stay" src="./movies/dareda-stay.mp4" loop></video>
       <input type="button" id="startbutton" onclick="start();" value="平成ちゃんと遊ぶ！">
     </div>
   </body>
