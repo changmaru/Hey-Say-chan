@@ -6,21 +6,33 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script src="http://webmo.local/javascripts/webmo.js"></script>
-    <script src="./scripts/webmo.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <script src="./scripts/speechAPI.js"></script>
+
+    <script type="text/javascript">
+
+      let speech = "";
+      speak.start();
+
+      function start(){
+        $('#startbutton').hide();
+        //closeEyes();
+        speech = "";
+      }
+
+      function end() {
+        $('#startbutton').show();
+        //openEyes();
+      }
+
+    </script>
   </head>
   <body>
     <div class="screen">
       <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-      <video class="movie" src="./movies/test.mp4" autoplay loop preload="auto"></video>
-      <input type="button" id="startbutton" value="平成ちゃんと遊ぶ！">
+      <video class="movie" src="./movies/test.MOV" autoplay loop preload="auto"></video>
+      <input type="button" id="startbutton" onclick="start();" value="平成ちゃんと遊ぶ！">
     </div>
-    <script type="text/javascript">
-      motor.onopen = function(){
-        speak.start();
-        openEyes();
-      }
-    </script>
   </body>
 </html>
