@@ -18,12 +18,36 @@
       function start(){
         $('#startbutton').hide();
         //closeEyes();
-        speech = "";
+        var video = document.getElementById('movie');
+        video.src = "./movies/dareda.mp4";
+        video.load();
+        video.loop = false;
+        video.play();
+
+        video.addEventListener('ended', function() {
+          video.src = "./movies/dareda-stay.mp4";
+          video.load();
+          video.loop = true;
+          video.play();
+        });
       }
 
       function end() {
         $('#startbutton').show();
         //openEyes();
+        var video = document.getElementById('movie');
+        var movie_url = "./movies/seikai.mp4";
+        video.src = movie_url;
+        video.load();
+        video.loop = false;
+        video.play();
+
+        video.addEventListener('ended', function() {
+          video.src = "./movies/seikai-stay.mp4";
+          video.load();
+          video.loop = true;
+          video.play();
+        });
       }
 
     </script>
@@ -31,7 +55,7 @@
   <body>
     <div class="screen">
       <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-      <video class="movie" src="./movies/test.MOV" autoplay loop preload="auto"></video>
+      <video id="movie" src="./movies/seikai-stay.mp4" autoplay loop></video>
       <input type="button" id="startbutton" onclick="start();" value="平成ちゃんと遊ぶ！">
     </div>
   </body>

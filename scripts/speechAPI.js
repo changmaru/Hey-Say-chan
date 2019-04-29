@@ -1,3 +1,5 @@
+// Web Speech APIについて
+
 SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 const speak = new SpeechRecognition();
 speak.lang = 'ja';
