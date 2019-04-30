@@ -11,4 +11,5 @@ speak.onresult = function(event){
   for (var i = event.resultIndex; i<results.length; i++) speech = results[i][0].transcript;
   console.log(speech);
   if ( speech.match(/平成/)) end();
+  speak.stop();
 }

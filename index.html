@@ -8,6 +8,8 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+    <script src="http://webmo.local/javascripts/webmo.js"></script>
+    <script src="./scripts/webmo.js"></script>
     <script src="./scripts/speechAPI.js"></script>
 
     <script type="text/javascript">
@@ -18,7 +20,8 @@
 
       function start(){
         $('#startbutton').hide();
-        //closeEyes();
+        closeEyes();
+        var video = document.getElementById('movie');
         video.src = "./movies/dareda.mp4";
         video.load();
         video.loop = false;
@@ -34,7 +37,8 @@
 
       function end() {
         $('#startbutton').show();
-        //openEyes();
+        openEyes();
+        var video = document.getElementById('movie');
         video.src = "./movies/seikai.mp4";
         video.load();
         video.loop = false;
