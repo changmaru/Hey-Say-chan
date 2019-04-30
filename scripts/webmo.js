@@ -1,8 +1,8 @@
 //Webmoについて
 const motor = new Webmo.ws("webmo.local");
 function closeEyes(){
-  motor.rotateBy(-30,60);
+  motor.rotateBy(45,90);
 }
 function openEyes() {
-  motor.rotateBy(30,60);
+  motor.rotateBy(-45,90);
 }
