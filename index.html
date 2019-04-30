@@ -7,16 +7,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <script src="http://webmo.local/javascripts/webmo.js"></script>
+    <script src="https://cdn.rawgit.com/cidreixd/webmo-library-javascript/master/dist/webmo.min.js"></script>
     <script src="./scripts/webmo.js"></script>
     <script src="./scripts/speechAPI.js"></script>
 
     <script type="text/javascript">
 
       let speech = "";
-      speak.start();
       var video = document.getElementById('movie');
+      speak.start();
 
       function start(){
         $('#startbutton').hide();
@@ -25,7 +24,6 @@
         video.src = "./movies/dareda.mp4";
         video.load();
         video.loop = false;
-        video.play();
 
         video.addEventListener('ended', function() {
           video.src = "./movies/dareda-stay.mp4";
