@@ -17,9 +17,11 @@
       var video = document.getElementById('movie');
       speak.start();
 
-
-      function start(){
+      function load(){
         $('#startbutton').hide();
+        window.setTimeout( start, 3000);
+      }
+      function start(){
         closeEyes();
         var video = document.getElementById('movie');
         video.src = "./movies/dareda.mp4";
@@ -56,7 +58,7 @@
     <div class="screen">
       <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
       <video id="movie" src="./movies/stay.mp4" autoplay loop></video>
-      <input type="button" id="startbutton" onclick="start();" value="平成ちゃんと遊ぶ！">
+      <input type="button" id="startbutton" onclick="load();" value="平成ちゃんと遊ぶ！">
     </div>
   </body>
 </html>
