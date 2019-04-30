@@ -2,14 +2,14 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>平成ちゃん(仮)</title>
+    <title>ふりかえって！平成ちゃん</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  　<script src="./scripts/speechAPI.js"></script>
     <script src="https://cdn.rawgit.com/cidreixd/webmo-library-javascript/master/dist/webmo.min.js"></script>
-    <script src="./scripts/webmo.js"></script>
-    <script src="./scripts/speechAPI.js"></script>
+  　<script src="./scripts/webmo.js"></script>
 
     <script type="text/javascript">
 
@@ -17,8 +17,11 @@
       var video = document.getElementById('movie');
       speak.start();
 
-      function start(){
+      function load(){
         $('#startbutton').hide();
+        window.setTimeout( start, 3000);
+      }
+      function start(){
         closeEyes();
         var video = document.getElementById('movie');
         video.src = "./movies/dareda.mp4";
@@ -34,7 +37,6 @@
       }
 
       function end() {
-        $('#startbutton').show();
         openEyes();
         var video = document.getElementById('movie');
         video.src = "./movies/seikai.mp4";
@@ -55,8 +57,8 @@
   <body>
     <div class="screen">
       <iframe src="./movies/mute.mp4" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
-      <video id="movie" src="./movies/seikai-stay.mp4" autoplay loop></video>
-      <input type="button" id="startbutton" onclick="start();" value="平成ちゃんと遊ぶ！">
+      <video id="movie" src="./movies/stay.mp4" autoplay loop></video>
+      <input type="button" id="startbutton" onclick="load();" value="平成ちゃんと遊ぶ！">
     </div>
   </body>
 </html>
